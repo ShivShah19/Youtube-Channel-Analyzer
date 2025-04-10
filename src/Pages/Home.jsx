@@ -1,11 +1,13 @@
-import React from 'react';
+import React from 'react'
+import ytLogo from '../assets/youtube-logo.svg';
 
-const AIEssayWriter = () => {
+export const Home = () => {
     return (
-        <div className="min-h-screen bg-gradient-to-b from-black via-[#1a0a0a] to-[#19073a] text-white">
+        <div className="min-h-screen bg-gradient-to-br from-[#0f0f1a] via-black to-[#1a0f1f]  text-white">
             <header className="flex justify-between items-center px-6 py-4 border-b border-gray-800 bg-black">
                 <div className="flex items-center gap-2">
-                    <div className="text-3xl text-purple-500">🤖</div>
+                    {/* <div className="text-3xl text-purple-500 w-8 h-8 flex align-center "><img src={ytLogo} alt="YouTube Logo" />
+                    </div> */}
                     <h1 className="text-white text-xl font-semibold">
                         YouTube<span className="text-purple-500"> Analyzer</span>
                     </h1>
@@ -37,6 +39,4 @@ const AIEssayWriter = () => {
             </main>
         </div>
     );
-};
-
-export default AIEssayWriter;
+}

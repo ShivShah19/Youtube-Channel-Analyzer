@@ -1,11 +1,22 @@
 import React from 'react'
-import AIEssayWriter from './AIEssayWriter'
+import { createBrowserRouter, RouterProvider } from 'react-router'
+import { Home } from './Pages/Home'
+import { Analysis } from './Pages/Analysis'
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />
+  },
+  {
+    path: "/analysis",
+    element: <Analysis />
+  }
+])
 
 function App() {
   return (
-    <>
-      <AIEssayWriter />
-    </>
+    <RouterProvider router={router} />
   )
 }
 
