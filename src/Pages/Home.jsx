@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 // import ytLogo from '../assets/youtube-logo.svg';
 import axios from "axios";
+import { DataContext } from '../Contexts/DataContext';
 
 export const Home = () => {
+    const { setChannelName, setChannelInfo } = useContext(DataContext);
     const [input, setInput] = useState("");
     const [error, setError] = useState("");
-    const [channelName, setChannelName] = useState("");
-    const [channelInfo, setChannelInfo] = useState(null);
 
     const youtubeRegex = /^https:\/\/(www\.)?youtube\.com\/@([A-Za-z0-9_-]+)$/;
 
@@ -33,7 +33,6 @@ export const Home = () => {
 
     const API_KEY = import.meta.env.VITE_YT_API;
     console.log(API_KEY);
-    console.log(channelName);
 
     const fetchChannelData = async (name) => {
 
@@ -84,8 +83,6 @@ export const Home = () => {
             console.error(err);
         }
     }
-
-    console.log(channelInfo);
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-[#0f0f1a] via-black to-[#1a0f1f]  text-white">
