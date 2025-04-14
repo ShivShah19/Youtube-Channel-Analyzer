@@ -2,9 +2,11 @@ import React, { useContext, useState } from 'react'
 // import ytLogo from '../assets/youtube-logo.svg';
 import axios from "axios";
 import { DataContext } from '../Contexts/DataContext';
+import { useFetchChannelData } from '../Hooks/useFetchChannelData';
 
 export const Home = () => {
-    const { setChannelName, setChannelInfo } = useContext(DataContext);
+    const { setChannelName } = useContext(DataContext);
+    const fetchChannelData = useFetchChannelData();
     const [input, setInput] = useState("");
     const [error, setError] = useState("");
 
@@ -23,64 +25,11 @@ export const Home = () => {
             if (youtubeRegex.test(input)) {
                 let name = input.split("@")[1];
                 setChannelName(name);
-                fetchChannelData(name);
+                fetchChannelData();
             }
             else {
                 setError("Please enter a valid YouTube channel link.");
             }
-        }
-    }
-
-    const API_KEY = import.meta.env.VITE_YT_API;
-    console.log(API_KEY);
-
-    const fetchChannelData = async (name) => {
-
-        try {
-            setError(null);
-            setChannelInfo(null);
-
-            // Step 1: Search by name to get channel ID
-            const searchRes = await axios.get(
-                `https://www.googleapis.com/youtube/v3/search`,
-                {
-                    params: {
-                        part: "snippet",
-                        type: "channel",
-                        q: name,
-                        key: API_KEY,
-                    },
-                }
-            );
-            const channelId = searchRes.data.items[0]?.id?.channelId;
-            console.log(channelId);
-
-
-            if (!channelId) {
-                setError("Channel not found.");
-                return;
-            }
-
-            // Step 2: Get channel details
-            const channelRes = await axios.get(
-                `https://www.googleapis.com/youtube/v3/channels`,
-                {
-                    params: {
-                        part: "snippet",
-                        id: channelId,
-                        key: API_KEY,
-                    },
-                }
-            );
-
-            const info = channelRes.data.items[0].snippet;
-            setChannelInfo({
-                title: info.title,
-                dp: info.thumbnails.high.url,
-            });
-        } catch (err) {
-            setError("Failed to fetch channel data.");
-            console.error(err);
         }
     }
 
