@@ -3,12 +3,16 @@ import React, { useContext, useState } from 'react'
 import axios from "axios";
 import { DataContext } from '../Contexts/DataContext';
 import { useFetchChannelData } from '../Hooks/useFetchChannelData';
+import { useNavigate } from 'react-router';
 
 export const Home = () => {
     const { setChannelName } = useContext(DataContext);
     const fetchChannelData = useFetchChannelData();
     const [input, setInput] = useState("");
     const [error, setError] = useState("");
+    const [loading, setLoading] = useState(false);
+
+    const navigate = useNavigate();
 
     const youtubeRegex = /^https:\/\/(www\.)?youtube\.com\/@([A-Za-z0-9_-]+)$/;
 
@@ -17,15 +21,22 @@ export const Home = () => {
         setError("");
     }
 
-    const checkInput = () => {
+    const checkInput = async () => {
         if (!input) {
             setError("Please enter youtube url");
         }
         else {
             if (youtubeRegex.test(input)) {
                 let name = input.split("@")[1];
-                setChannelName(name);
-                fetchChannelData();
+                // setChannelName(name);
+                setLoading(true);
+                const success = await fetchChannelData(name);
+                setLoading(false);
+                if (success) {
+                    navigate("/analysis");
+                } else {
+                    setError("Failed to fetch channel data");
+                }
             }
             else {
                 setError("Please enter a valid YouTube channel link.");
@@ -69,6 +80,13 @@ export const Home = () => {
                     </button>
 
                 </div>
+                {loading && (
+                    <div className="mt-4">
+                        <div className="loader border-4 border-purple-500 border-t-transparent rounded-full w-8 h-8 animate-spin mx-auto"></div>
+                        <p className="text-sm text-gray-400 mt-2">Analyzing Channel...</p>
+                    </div>
+                )}
+
                 {error && <p className="text-red-500 mt-4">{error}</p>}
             </main>
         </div>
