@@ -1,12 +1,8 @@
-import React, { useContext, useState } from 'react'
-// import ytLogo from '../assets/youtube-logo.svg';
-import axios from "axios";
-import { DataContext } from '../Contexts/DataContext';
+import React, { useState } from 'react'
 import { useFetchChannelData } from '../Hooks/useFetchChannelData';
 import { useNavigate } from 'react-router';
 
 export const Home = () => {
-    const { setChannelName } = useContext(DataContext);
     const fetchChannelData = useFetchChannelData();
     const [input, setInput] = useState("");
     const [error, setError] = useState("");

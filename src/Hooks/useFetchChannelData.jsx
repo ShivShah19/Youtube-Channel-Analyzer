@@ -19,6 +19,8 @@ export const useFetchChannelData = () => {
             });
 
             const channelId = searchRes.data.items[0]?.id?.channelId;
+            console.log(channelId);
+
             if (!channelId) {
                 console.error("Channel not found.");
                 return;
