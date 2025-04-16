@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import worldIcon from "../assets/worldIcon.svg";
+import subscriberIcon from "../assets/subscriberIcon.svg";
 
 import { DataContext } from "../Contexts/DataContext";
 import CountryCodes from "../CountryCode/countryCode";
@@ -10,7 +11,9 @@ export default function UserProfileDetails() {
     const [showDesc, setShowDesc] = useState(false);
 
     const dp = channelInfo?.snippet?.thumbnails?.high?.url;
-    console.log(dp);
+
+    const subscriber = channelInfo?.statistics?.subscriberCount;
+    console.log(subscriber);
 
     const title = channelInfo?.snippet?.title;
     const description = channelInfo?.snippet?.description || "";
@@ -46,7 +49,8 @@ export default function UserProfileDetails() {
                             </span>
                         )}
                     </p>
-                    <p className="text-gray-300 text-ms flex gap-1.5"><img src={worldIcon} alt="worldIcon" /><span>{countryName}</span></p>
+                    <p className="text-gray-300 text-ms flex gap-1.5"><img src={subscriberIcon} alt="subscriberIcon" /><span>{subscriber ? subscriber : 0} <span>{subscriber < 10 ? "Subscriber" : "Subscribers"}</span></span></p>
+                    {countryName && <p className="text-gray-300 text-ms flex gap-1.5"><img src={worldIcon} alt="worldIcon" /><span>{countryName}</span></p>}
                 </div>
             </div>
         </div >
