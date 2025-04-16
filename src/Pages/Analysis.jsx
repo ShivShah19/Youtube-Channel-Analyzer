@@ -27,7 +27,7 @@ export const Analysis = () => {
     if (!channelInfo) return null;
 
     return (
-        <div className="w-screen h-screen mx-auto p-6 bg-[#121212] shadow-lg flex flex-col md:flex-row items-center md:items-start gap-8 border border-[#1f1f1f]">
+        <div className='w-screen h-auto mx-auto p-6 bg-[#121212] shadow-lg'>
             <UserProfileDetails />
             <Report />
         </div>

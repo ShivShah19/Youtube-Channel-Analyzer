@@ -20,7 +20,11 @@ export const Report = () => {
 
     return (
         <>
-            <Chart data={videoData} />
+            <div className='flex my-16 justify-around flex-wrap gap-5'>
+                <Chart data={videoData} type="Video" />
+                <Chart data={likeData} type="Like" />
+                <Chart data={commentData} type="Comment" />
+            </div>
         </>
     )
 }
