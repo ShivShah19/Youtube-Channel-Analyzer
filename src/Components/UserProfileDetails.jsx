@@ -3,7 +3,7 @@ import worldIcon from "../assets/worldIcon.svg";
 import subscriberIcon from "../assets/subscriberIcon.svg";
 
 import { DataContext } from "../Contexts/DataContext";
-import CountryCodes from "../CountryCode/countryCode";
+import CountryCodes from "../CountryCode/CountryCode.js";
 
 
 export default function UserProfileDetails() {
