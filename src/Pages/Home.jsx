@@ -42,7 +42,7 @@ export const Home = () => {
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-[#0f0f1a] via-black to-[#1a0f1f]  text-white">
-            <header className="flex justify-between items-center px-6 py-4 border-b border-gray-800 bg-black">
+            <header className="flex justify-between items-center px-6 py-4 border-b border-gray-900 bg-black">
                 <div className="flex items-center gap-2">
                     {/* <div className="text-3xl text-purple-500 w-8 h-8 flex align-center "><img src={ytLogo} alt="YouTube Logo" />
                     </div> */}
@@ -50,15 +50,15 @@ export const Home = () => {
                         YouTube<span className="text-purple-500"> Analyzer</span>
                     </h1>
                 </div>
-                <div className="flex items-center gap-6 text-sm">
-                    <a href="#" className="hover:underline">CountDown</a>
-                </div>
             </header>
 
             <main className="flex flex-col items-center justify-center px-4 text-center mt-28">
                 <h2 className="text-2xl font-bold mb-4 sm:text-5xl">
-                    AI-Powered YouTube Channel Analyzer
+                    YouTube Channel Analyzer
                 </h2>
+                {/* <h2 className="text-2xl font-bold mb-4 sm:text-5xl">
+                    AI-Powered YouTube Channel Analyzer
+                </h2> */}
                 <p className="text-gray-300 mb-8 text-ms sm:text:lg">
                     Get insights. Improve engagement. Grow faster. TRY FOR FREE!
                 </p>

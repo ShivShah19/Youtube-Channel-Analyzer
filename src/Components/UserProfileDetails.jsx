@@ -13,7 +13,6 @@ export default function UserProfileDetails() {
     const dp = channelInfo?.snippet?.thumbnails?.high?.url;
 
     const subscriber = channelInfo?.statistics?.subscriberCount;
-    console.log(subscriber);
 
     const title = channelInfo?.snippet?.title;
     const description = channelInfo?.snippet?.description || "";

@@ -16,7 +16,6 @@ export const Report = () => {
             commentData.push({ year, value: data.totalComments });
         }
     }
-    console.log(videoData);
 
     return (
         <>

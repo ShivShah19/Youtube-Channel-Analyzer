@@ -45,8 +45,6 @@ export const getYouTubeYearlyStats = async (channelId) => {
                     key: API_KEY,
                 },
             });
-            console.log(statsRes);
-
 
             statsRes.data.items.forEach((video) => {
                 const year = new Date(video.snippet.publishedAt).getFullYear();
