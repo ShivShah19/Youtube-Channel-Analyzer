@@ -22,8 +22,10 @@ export const Home = () => {
             setError("Please enter youtube url");
         }
         else {
-            if (youtubeRegex.test(input)) {
-                let name = input.split("@")[1];
+            const cleanedInput = input.split('?')[0];   // remove everything after "?"
+
+            if (youtubeRegex.test(cleanedInput)) {
+                let name = cleanedInput.split("@")[1];
                 // setChannelName(name);
                 setLoading(true);
                 const success = await fetchChannelData(name);
