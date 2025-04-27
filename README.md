@@ -56,8 +56,8 @@ All the data is beautifully visualized using interactive graphs to help understa
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/ShivShah19/YouTube-Analysis.git
-   cd Youtube-Analysis
+   git clone https://github.com/ShivShah19/Youtube-Channel-Analyzer.git
+   cd Youtube-Channel-Analyzer 
    ```
 
 2. Install dependencies:
