@@ -19,7 +19,7 @@ export const Report = () => {
 
     return (
         <>
-            <div className='flex my-16 justify-around flex-wrap gap-5'>
+            <div className='flex my-16 justify-around flex-wrap gap-8 sm:gap-4'>
                 <Chart data={videoData} type="Video" />
                 <Chart data={likeData} type="Like" />
                 <Chart data={commentData} type="Comment" />

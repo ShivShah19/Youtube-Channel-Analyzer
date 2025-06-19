@@ -44,17 +44,17 @@ export const Home = () => {
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-[#0f0f1a] via-black to-[#1a0f1f]  text-white">
-            <header className="flex justify-between items-center px-6 py-4 border-b border-gray-900 bg-black">
+            <header className="flex justify-between items-center px-6 py-4 ">
                 <div className="flex items-center gap-2">
                     {/* <div className="text-3xl text-purple-500 w-8 h-8 flex align-center "><img src={ytLogo} alt="YouTube Logo" />
                     </div> */}
-                    <h1 className="text-white text-xl font-semibold">
+                    <h1 className="text-white text-2xl font-semibold">
                         YouTube<span className="text-purple-500"> Analyzer</span>
                     </h1>
                 </div>
             </header>
 
-            <main className="flex flex-col items-center justify-center px-4 text-center mt-28">
+            <main className="flex flex-col sm:items-center sm:justify-center px-4 mt-28">
                 <h2 className="text-2xl font-bold mb-4 sm:text-5xl">
                     YouTube Channel Analyzer
                 </h2>
@@ -73,16 +73,18 @@ export const Home = () => {
                         value={input}
                         onChange={handleInput}
                     />
-                    <button className="bg-[#552fff] hover:bg-[#6e3aff] px-6 py-6 rounded-md text-white text-ms font-semibold" onClick={checkInput}>
-                        Analysis
+                    <button className="flex-shrink-0 bg-[#552fff] hover:bg-[#6e3aff] p-4 sm:px-6 sm:py-5 rounded-md text-white text-base font-semibold cursor-pointer "
+                        onClick={checkInput}>
+                        Analyze
                     </button>
 
                 </div>
                 {loading && (
-                    <div className="mt-4">
-                        <div className="loader border-4 border-purple-500 border-t-transparent rounded-full w-8 h-8 animate-spin mx-auto"></div>
-                        <p className="text-sm text-gray-400 mt-2">Analyzing Channel...</p>
+                    <div className="mt-4 flex flex-col items-center justify-center">
+                        <div className="loader border-4 border-purple-500 border-t-transparent rounded-full w-8 h-8 animate-spin"></div>
+                        <p className="text-sm text-gray-400 mt-2 text-center">Analyzing Channel...</p>
                     </div>
+
                 )}
 
                 {error && <p className="text-red-500 mt-4">{error}</p>}

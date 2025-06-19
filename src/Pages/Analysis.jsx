@@ -27,7 +27,7 @@ export const Analysis = () => {
     if (!channelInfo) return null;
 
     return (
-        <div className='w-screen h-auto mx-auto p-6 bg-[#121212] shadow-lg'>
+        <div className='w-screen h-auto mx-auto p-6 bg-[#0c0c0c] shadow-lg'>
             <UserProfileDetails />
             <Report />
         </div>
