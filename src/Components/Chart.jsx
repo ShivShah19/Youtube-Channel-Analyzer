@@ -9,7 +9,7 @@ import {
     ResponsiveContainer,
 } from "recharts";
 
-export const Chart = ({ data, type }) => {
+export const Chart = ({ data, type, icon }) => {
     if (!data || data.length === 0) {
         return (
             <div className="w-96 h-96 bg-gradient-to-br from-[#1f1f1f] to-[#2c2c2c] rounded-2xl shadow-lg flex items-center justify-center">
@@ -24,13 +24,18 @@ export const Chart = ({ data, type }) => {
     const average = Math.round(total / data.length);
 
     return (
-        <div className="w-md h-96 bg-gradient-to-br from-[#1f1f1f] to-[#2c2c2c] shadow-xl rounded-2xl p-3 flex flex-col">
-            <p className="text-center text-white text-lg font-semibold mb-2">
-                📊 YouTube {type} Stats
-            </p>
+        <div className="w-2xl h-96 bg-gradient-to-br from-[#1f1f1f] to-[#2c2c2c] shadow-xl rounded-2xl p-3 flex flex-col">
+            <div className="flex items-center justify-center gap-2 text-white text-lg font-semibold mb-2">
+                <div className="w-5 h-5">
+                    <img src={icon} alt={type} className="w-full h-full object-cover" />
+                </div>
+
+                <span>YouTube {type} Stats</span>
+            </div>
+
             <div className="flex-1">
                 <ResponsiveContainer width="100%" height="100%">
-                    <LineChart data={data} margin={{ top: 10, right: 20, left: -5, bottom: 5 }}>
+                    <LineChart data={data} margin={{ top: 10, right: 20, left: 0, bottom: 5 }}>
                         <CartesianGrid strokeDasharray="3 3" stroke="#444" />
                         <XAxis dataKey="year" stroke="#ccc" />
                         <YAxis
