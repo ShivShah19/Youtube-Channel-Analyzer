@@ -45,21 +45,26 @@ export const getYouTubeYearlyStats = async (channelId) => {
                     key: API_KEY,
                 },
             });
+            // console.log(statsRes.data.items);
+
 
             statsRes.data.items.forEach((video) => {
                 const year = new Date(video.snippet.publishedAt).getFullYear();
+                const videos = parseInt(video.statistics.viewCount || 0);
                 const likes = parseInt(video.statistics.likeCount || 0);
                 const comments = parseInt(video.statistics.commentCount || 0);
 
                 if (!yearStats[year]) {
                     yearStats[year] = {
                         videoCount: 0,
+                        totalViews: 0,
                         totalLikes: 0,
                         totalComments: 0,
                     };
                 }
 
                 yearStats[year].videoCount += 1;
+                yearStats[year].totalViews += videos;
                 yearStats[year].totalLikes += likes;
                 yearStats[year].totalComments += comments;
             });
