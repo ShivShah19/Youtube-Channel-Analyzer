@@ -29,6 +29,13 @@ export const Analysis = () => {
     return (
         <div className='w-screen h-auto mx-auto p-6 bg-[#0c0c0c] shadow-lg'>
             <UserProfileDetails />
+            <div className="text-center my-10">
+                <div className="w-16 h-1 bg-purple-500 mx-auto mb-3 rounded"></div>
+                <h2 className="text-3xl font-extrabold text-white mb-2">
+                    YouTube Yearly Stats 📊
+                </h2>
+            </div>
+
             <Report />
         </div>
     );
